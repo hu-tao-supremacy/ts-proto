@@ -383,25 +383,7 @@ export function isEmptyType(typeName: string): boolean {
 }
 
 export function valueTypeName(ctx: Context, typeName: string): Code | undefined {
-  switch (typeName) {
-    case '.google.protobuf.StringValue':
-      return code`string`;
-    case '.google.protobuf.Int32Value':
-    case '.google.protobuf.UInt32Value':
-    case '.google.protobuf.DoubleValue':
-    case '.google.protobuf.FloatValue':
-      return code`number`;
-    case '.google.protobuf.Int64Value':
-    case '.google.protobuf.UInt64Value':
-      // return options ? longTypeName(options) : code`number`;
-      return longTypeName(ctx);
-    case '.google.protobuf.BoolValue':
-      return code`boolean`;
-    case '.google.protobuf.BytesValue':
-      return code`Uint8Array`;
-    default:
-      return undefined;
-  }
+  return undefined;
 }
 
 function longTypeName(ctx: Context): Code {
