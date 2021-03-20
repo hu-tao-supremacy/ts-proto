@@ -1,29 +1,23 @@
 name: Build
 on:
-  pull_request:
   push:
     branches:
-      - master
-
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x]
-
     steps:
       - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: install dependencies
-        run: yarn install
-      - name: Prepare Integration
-        run: ./integration/pbjs.sh
-      - name: test
-        run: yarn test
+      - run: yarn install
+      - run: |
+          yarn build
+          git add build/
+          git commit -m 'Create @hu-tao-supremacy/ts-proto JavaScript build output'
         env:
-          CI: true
+          GIT_COMMITTER_NAME: dodoco-bot
+          GIT_AUTHOR_NAME: dodoco-bot
+          EMAIL: 77519537+dodoco-bot@users.noreply.github.com
+      - uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
