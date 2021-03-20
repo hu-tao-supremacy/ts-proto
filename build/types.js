@@ -401,7 +401,7 @@ function messageToTypeName(ctx, protoType, typeOptions = {}) {
         if (!!typeOptions.repeated || options.useOptionals) {
             return valueType;
         }
-        return ts_poet_1.code `${valueType} | undefined`;
+        return ts_poet_1.code `${valueType}`;
     }
     // Look for other special prototypes like Timestamp that aren't technically wrapper types
     if (!typeOptions.keepValueType && protoType === '.google.protobuf.Timestamp' && options.useDate) {
