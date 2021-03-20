@@ -17,7 +17,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
     "@grpc/proto-loader": "^0.5.4",
     "@improbable-eng/grpc-web": "^0.13.0",
     "@improbable-eng/grpc-web-node-http-transport": "^0.13.0",
@@ -34,9 +35,7 @@
     "ts-jest": "^25.2.1",
     "ts-node": "^9.1.1",
     "typescript": "^3.9.3",
-    "uglify-js": "^3.9.2"
-  },
-  "dependencies": {
+    "uglify-js": "^3.9.2",
     "@types/object-hash": "^1.3.0",
     "dataloader": "^1.4.0",
     "object-hash": "^1.3.1",
